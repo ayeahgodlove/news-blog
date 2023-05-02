@@ -1,3 +1,4 @@
 # pokedex-app
-This is a small web application created with HTML, CSS, and JavaScript that loads data from an external API (https://pokeapi.co/) and displays a list of Pokémon. 
-The app works in Chrome, Firefox, Safari, Edge, and Internet Explorer 11.
+The Pokédex App is a web application that allows users to browse and search for information about different Pokémon species. The app includes data on over 150 Pokémon, including their types, abilities, moves, and evolution chains.
+
+This application was created with HTML, CSS, and JavaScript and loads data from an external API (https://pokeapi.co/). It works in Chrome, Firefox, Safari, Edge, and Internet Explorer 11.
