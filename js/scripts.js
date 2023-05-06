@@ -24,6 +24,8 @@ let pokemonRepository = (function () {
     };
 })();
 
+
+pokemonRepository.add({name: 'Vulpix', height: 0.6, type: 'fire'});
 pokemonRepository.getAll().forEach(printPokemon);
 
 function printPokemon(pokemon) {
