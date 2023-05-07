@@ -30,6 +30,7 @@ pokemonRepository.getAll().forEach(printPokemon);
 
 function printPokemon(pokemon) {
     let pokemonList = document.querySelector('.pokemon-list');
+    let listItem = document.createElement('li');
 
 
 
@@ -37,4 +38,5 @@ function printPokemon(pokemon) {
     if (pokemon.height > 0.6) {
         document.write(" - Wow, that\’s big!");
     }
+    document.write("<br>"); */
 }
