@@ -14,3 +14,12 @@ body {
     font-size: 24px;
     line-height: 1.6;
 }
+
+.pokemonButton {
+    border: none;
+    background-color: #A583C9;
+    color: var(--secondary-color);
+    font-family: inherit;
+    text-decoration: none;
+    padding: 10px;
+}
