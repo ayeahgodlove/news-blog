@@ -5,6 +5,10 @@ let pokemonRepository = (function () {
         {name: 'Pikachu', height: 0.4, type: 'electric'}
     ];
 
+    function showDetails(pokemon) {
+        console.log(pokemon);
+    }
+
     return {
         add: function(item) {
             if (typeof item === "object") {
@@ -30,10 +34,7 @@ let pokemonRepository = (function () {
             button.classList.add('pokemonButton');
             listItem.appendChild(button);
             pokemonList.appendChild(listItem);
-        },
-
-        showDetails: function showDetails(pokemon) {
-            console.log(pokemon)
+            button.addEventListener('click', function() { showDetails(pokemon) });
         }
     };
 })();
