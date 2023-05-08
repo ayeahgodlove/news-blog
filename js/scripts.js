@@ -20,20 +20,27 @@ let pokemonRepository = (function () {
 
         getAll: function() {
             return pokemonList;
+        },
+
+        addListItem: function addListItem(pokemon) {
+            let pokemonList = document.querySelector('.pokemon-list');
+            let listItem = document.createElement('li');
+            let button = document.createElement('button');
+            button.innerText = (pokemon.name);
+            button.classList.add('pokemonButton');
+            listItem.appendChild(button);
+            pokemonList.appendChild(listItem);
+        },
+
+        showDetails: function showDetails(pokemon) {
+            console.log(pokemon)
         }
     };
 })();
 
 pokemonRepository.add({name: 'Vulpix', height: 0.6, type: 'fire'});
-pokemonRepository.getAll().forEach(printPokemon);
+pokemonRepository.getAll().forEach(function(pokemon) {
+    pokemonRepository.addListItem(pokemon);
+})
 
-function printPokemon(pokemon) {
-    let pokemonList = document.querySelector('.pokemon-list');
-    let listItem = document.createElement('li');
-    let button = document.createElement('button');
-    button.innerText = (pokemon.name);
-    button.classList.add('pokemonButton');
-    listItem.appendChild(button);
-    pokemonList.appendChild(listItem);
-
-}
+//function printPokemon(pokemon)
