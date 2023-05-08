@@ -36,9 +36,4 @@ function printPokemon(pokemon) {
     listItem.appendChild(button);
     pokemonList.appendChild(listItem);
 
-    /* document.write(pokemon.name + " (height: " + pokemon.height + ")");
-    if (pokemon.height > 0.6) {
-        document.write(" - Wow, that\’s big!");
-    }
-    document.write("<br>"); */
 }
