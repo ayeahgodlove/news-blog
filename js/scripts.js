@@ -32,6 +32,7 @@ function printPokemon(pokemon) {
     let listItem = document.createElement('li');
     let button = document.createElement('button');
     button.innerText = (pokemon.name);
+    button.classList.add('pokemonButton');
 
     /* document.write(pokemon.name + " (height: " + pokemon.height + ")");
     if (pokemon.height > 0.6) {
