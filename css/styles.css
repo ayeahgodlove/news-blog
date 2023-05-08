@@ -15,6 +15,16 @@ body {
     line-height: 1.6;
 }
 
+.page-header {
+    display: flex;
+    width: 100%;
+    padding: 20px;
+    background-color: var(--secondary-color);
+}
+.page-header__item {
+    flex: 0 1 200px;
+}
+
 .pokemonButton {
     border: none;
     background-color: var(--secondary-color);
@@ -23,6 +33,13 @@ body {
     text-decoration: none;
     padding: 10px;
     margin: 10px;
+}
+
+.pokemonButton:hover,
+.pokemonButton:focus {
+    cursor: pointer;
+    background-color: #D4CDDB;
+    color: #7644AC;
 }
 
 .pokemon-list {
