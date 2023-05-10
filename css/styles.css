@@ -18,12 +18,13 @@ body {
 
 .page-header {
     display: flex;
-    width: 100%;
-    padding: 20px;
+    padding: 15px;
     background-color: var(--primary-color);
 }
 .page-header__item {
-    flex: 0 1 200px;
+    flex: 0 1 250px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .pokemonButton {
