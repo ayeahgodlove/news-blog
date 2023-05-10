@@ -33,6 +33,7 @@ body {
     color: var(--primary-color-lighter);
     font-family: inherit;
     text-decoration: none;
+    width: 200px;
     padding: 10px;
     margin: 10px;
 }
