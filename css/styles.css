@@ -18,7 +18,7 @@ body {
 
 .page-header {
     display: flex;
-    padding: 15px;
+    padding: 10px;
     background-color: var(--primary-color);
 }
 .page-header__item {
@@ -40,7 +40,7 @@ body {
 .pokemonButton:hover,
 .pokemonButton:focus {
     cursor: pointer;
-    background-color: #D4CDDB;
+    background-color: #FECE0B;
     color: #7644AC;
 }
 
