@@ -1,23 +1,15 @@
 let pokemonRepository = (function () {
-    let pokemonList = [
-        {name: 'Bulbasaur', height: 0.7, type: ['grass', 'poison']},
-        {name: 'Weedle', height: 0.3, type: ['bug', 'poison']},
-        {name: 'Pikachu', height: 0.4, type: 'electric'}
-    ];
-
-    function showDetails(pokemon) {
-        console.log(pokemon);
-    }
+    let pokemonList = [];
+    let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
 
     return {
-        add: function(item) {
-            if (typeof item === "object") {
-                let keys = Object.keys(item);
+        add: function(pokemon) {
+            if (typeof pokemon === "object") {
+                let keys = Object.keys(pokemon);
                 let hasName = keys.includes("name");
-                let hasHeight = keys.includes("height");
-                let hasType = keys.includes("type");
-                if (hasName && hasHeight && hasType) {
-                    pokemonList.push(item);
+                let hasUrl = keys.includes("detailsUrl");
+                if (hasName && hasUrl) {
+                    pokemonList.push(pokemon);
                 }
             }
         },
@@ -26,7 +18,7 @@ let pokemonRepository = (function () {
             return pokemonList;
         },
 
-        addListItem: function addListItem(pokemon) {
+        addListItem: function(pokemon) {
             let pokemonList = document.querySelector('.pokemon-list');
             let listItem = document.createElement('li');
             let button = document.createElement('button');
@@ -34,14 +26,51 @@ let pokemonRepository = (function () {
             button.classList.add('pokemonButton');
             listItem.appendChild(button);
             pokemonList.appendChild(listItem);
-            button.addEventListener('click', function() { showDetails(pokemon) });
+            button.addEventListener('click', function() { pokemonRepository.showDetails(pokemon) });
+        },
+
+        loadList: function() {
+            return fetch(apiUrl).then(function(response) {
+                return response.json();
+            }).then(function (json) {
+                json.results.forEach(function(item) {
+                    let pokemon = {
+                        name: item.name,
+                        detailsUrl: item.url
+                    };
+                    pokemonRepository.add(pokemon);
+                });
+            }).catch(function (e) {
+                console.error(e);
+            })
+        },
+
+        loadDetails: function(pokemon) {
+            return fetch(pokemon.detailsUrl).then(function(response) {
+                return response.json();
+            }).then(function(details) {
+                pokemon.imageURL = details.sprites.front_default;
+                pokemon.height = details.height;
+                pokemon.types = details.types;
+            }).catch(function (e) {
+                console.error(e);
+            });
+        },
+
+        showDetails: function showDetails(pokemon) {
+            pokemonRepository.loadDetails(pokemon).then(function () {
+                console.log(pokemon);
+            });
         }
+
     };
 })();
 
-pokemonRepository.add({name: 'Vulpix', height: 0.6, type: 'fire'});
-pokemonRepository.getAll().forEach(function(pokemon) {
-    pokemonRepository.addListItem(pokemon);
-})
+pokemonRepository.loadList().then(function() {
+    pokemonRepository.getAll().forEach(function(pokemon) {
+        pokemonRepository.addListItem(pokemon);
+    });
+});
+
 
 
