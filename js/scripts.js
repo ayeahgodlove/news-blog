@@ -44,4 +44,4 @@ pokemonRepository.getAll().forEach(function(pokemon) {
     pokemonRepository.addListItem(pokemon);
 })
 
-//function printPokemon(pokemon)
+
