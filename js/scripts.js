@@ -30,9 +30,11 @@ let pokemonRepository = (function () {
         },
 
         loadList: function() {
+            console.log('Loading Pokemons...');
             return fetch(apiUrl).then(function(response) {
                 return response.json();
             }).then(function (json) {
+                console.log('Pokemons loaded.');
                 json.results.forEach(function(item) {
                     let pokemon = {
                         name: item.name,
@@ -41,18 +43,22 @@ let pokemonRepository = (function () {
                     pokemonRepository.add(pokemon);
                 });
             }).catch(function (e) {
+                console.log('Error loading Pokemons!');
                 console.error(e);
             })
         },
 
         loadDetails: function(pokemon) {
+            console.log('Loading ' + pokemon.name + '...');
             return fetch(pokemon.detailsUrl).then(function(response) {
                 return response.json();
             }).then(function(details) {
+                console.log(pokemon.name + ' loaded!');
                 pokemon.imageURL = details.sprites.front_default;
                 pokemon.height = details.height;
                 pokemon.types = details.types;
             }).catch(function (e) {
+                console.log('Error loading Pokemon ' + pokemon.name + '!');
                 console.error(e);
             });
         },
