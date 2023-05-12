@@ -50,26 +50,33 @@ body {
     display: grid;
 }
 
-@media all and (max-width: 900px) {
+@media all and (min-width: 900px) {
+  .pokemon-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: auto;
+    border-style: none;
+  }
+}
+
+@media all and (min-width: 750px) and (max-width: 900px) {
     .pokemon-list {
       display: grid;
       grid-template-columns: 1fr 1fr 1fr;
       grid-template-rows: auto;
-      margin-right: 10%;
       border-style: none;
     }
   }
-  @media all and (max-width: 750px) {
+  @media all and (min-width: 500px) and (max-width: 750px) {
     .pokemon-list {
       display: grid;
       grid-template-columns: 1fr 1fr;
       grid-template-rows: auto;
-      margin-right: 10px;
       border-style: none;
     }
   }
   
-  @media all and (max-width: 400px) {
+  @media all and (max-width: 500px) {
     .pokemon-list {
       display: grid;
       grid-template-columns: 1fr;
