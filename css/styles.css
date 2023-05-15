@@ -1,5 +1,6 @@
 :root {
-    --primary-color: #FFDE58;
+    --primary-color: #FECE0B;
+    --primary-color-lighter: #FFDE58;
     --secondary-color: #7644AC;
     --accent-color: #4764AB;
     --text-color: #000;
@@ -7,7 +8,7 @@
 }
 
 body {
-    background-color: var(--primary-color);
+    background-color: var(--primary-color-lighter);
     font-family:'Courier New', Courier, monospace;
     color: var(--text-color);
     font-weight: 500;
@@ -17,20 +18,22 @@ body {
 
 .page-header {
     display: flex;
-    width: 100%;
-    padding: 20px;
-    background-color: var(--secondary-color);
+    padding: 10px;
+    background-color: var(--primary-color);
 }
 .page-header__item {
-    flex: 0 1 200px;
+    flex: 0 1 250px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .pokemonButton {
     border: none;
     background-color: var(--secondary-color);
-    color: var(--primary-color);
+    color: var(--primary-color-lighter);
     font-family: inherit;
     text-decoration: none;
+    width: 200px;
     padding: 10px;
     margin: 10px;
 }
@@ -38,7 +41,7 @@ body {
 .pokemonButton:hover,
 .pokemonButton:focus {
     cursor: pointer;
-    background-color: #D4CDDB;
+    background-color: #FECE0B;
     color: #7644AC;
 }
 
